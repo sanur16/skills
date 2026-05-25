@@ -45,7 +45,7 @@ Before recommending anything, check what already exists so you don't duplicate o
 - `~/.claude/agents/` and per-project `.claude/agents/`.
 - `~/.claude/commands/` and per-project `.claude/commands/`.
 - `~/.claude/settings.json` (hooks, permissions, env).
-- `~/.claude/scheduled-tasks/` and the `/schedule` skill (for cron-style routines).
+- `~/.claude/scheduled-tasks/` or any scheduled-task skill the user has installed (for cron-style routines).
 - Configured MCP servers (listed in the system reminder).
 
 A new asset is only justified if it's clearly distinct from — or a deliberate extension of — what's already there.
@@ -72,7 +72,7 @@ For each viable candidate, pick the smallest form that fits the work:
 - **Subagent** (`~/.claude/agents/<name>.md`) — a bounded specialist role for delegation in an isolated context. Best for investigation-heavy or context-heavy tasks where the main thread should stay clean and the agent returns a focused report.
 - **Automation** — either:
   - a **hook** (in `~/.claude/settings.json`) for event-driven checks tied to tool/lifecycle events; or
-  - a **scheduled job** (via the `/schedule` skill, or a cron / GitHub Actions invocation of `claude -p`) for recurring reports, reminders, or monitors.
+  - a **scheduled job** (via a scheduling skill if available, or a cron / GitHub Actions invocation of `claude -p`) for recurring reports, reminders, or monitors.
 - **Extend existing** — add to or refine an asset that's already there. Often better than creating a new one; resist the impulse to launch a new file when a 10-line edit to an existing skill would do.
 - **Skip** — too one-off, ambiguous, sensitive, or poorly evidenced. Saying "no" is a valid result.
 
@@ -106,7 +106,7 @@ For each one you create:
 - Don't create speculative, overlapping, or overly broad assets.
 - For skills, follow the format of existing entries under `~/.claude/skills/` (frontmatter with `name` and `description`, body in markdown).
 - For subagents, follow `.claude/agents/` conventions in this repo / user dir.
-- For hooks or scheduled jobs, use the `update-config` skill (hooks) or the `/schedule` skill (scheduled jobs) rather than hand-editing config.
+- For hooks or scheduled jobs, prefer a purpose-built skill if one is installed (anything that manages `settings.json` or cron-style routines) over hand-editing config files.
 
 ### Step 4 — Report
 Finish with three sections, in this order:
@@ -129,7 +129,7 @@ Finish with three sections, in this order:
 - **Don't package things you imagine the user might want.** Stick to what the evidence supports. Hypothetical recurrence isn't evidence.
 - **Don't create kitchen-sink skills.** "Helper for X" with five vaguely related sub-tasks is worse than nothing — it dilutes triggering and confuses future-you.
 - **Don't auto-create automations that touch shared systems.** Cron jobs that hit prod, hooks that broadly block tool calls — surface these as proposals and let the user confirm before writing them.
-- **Don't duplicate skills that already exist under a slightly different name.** If `/pr`, `/pr-new`, and `/pr-merge` are already in `~/.claude/skills/`, don't propose `/pr-create`.
+- **Don't duplicate skills that already exist under a slightly different name.** If close variants of a workflow are already installed, extending one of them beats creating a near-duplicate alongside.
 - **Don't include sensitive data in skill content.** Secrets, private message contents, PII — none of it belongs in a checked-in (or even local) skill file.
 - **Don't over-instruct.** When in doubt, explain the *why* once and trust the model. Heavy `ALWAYS`/`NEVER` walls of text usually mean the skill needs reframing, not more rules.
 
