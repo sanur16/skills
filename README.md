@@ -20,6 +20,9 @@ Skills are auto-discovered the next time Claude Code starts.
 | Skill | What it does |
 |---|---|
 | [self-improve](./self-improve/) | Audits your recent Claude Code work, finds repeated workflows, and packages the high-confidence ones as skills, subagents, hooks, or scheduled jobs. |
+| [pr](./pr/) | Runs a repository-aware PR lifecycle, fixes review findings, validates, auto-merges, and verifies delivery. |
+| [code-review](./code-review/) | Discovers the active repository's checks, simplifies the change, and runs an adversarial review before commit or merge. |
+| [code-simplify](./code-simplify/) | Performs behaviour-preserving simplification as the internal child of code-review. |
 
 ## Contributing
 

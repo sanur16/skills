@@ -1,0 +1,4 @@
+interface:
+  display_name: "PR"
+  short_description: "Review, fix, test, and auto-merge a PR"
+  default_prompt: "Use $pr to review, fix, test, and merge this change."

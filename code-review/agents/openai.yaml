@@ -1,0 +1,6 @@
+interface:
+  display_name: "Code Review"
+  short_description: "Run an adversarial, repository-aware review"
+  default_prompt: "Use $code-review to review the current change."
+policy:
+  allow_implicit_invocation: false
