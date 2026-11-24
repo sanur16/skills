@@ -9,6 +9,10 @@ Own the full lifecycle and auto-merge when every gate passes. Use `$code-review`
 as the only review child; it invokes `$code-simplify` itself. Do not wait for or
 depend on Gemini, Claude, Codex, CodeRabbit, or GitHub Actions review bots.
 
+Child skills may be hidden from the agent's skill list. Load them by path:
+`$code-review` is [`../code-review/SKILL.md`](../code-review/SKILL.md) and
+`$code-simplify` is [`../code-simplify/SKILL.md`](../code-simplify/SKILL.md).
+
 ## 1. Resolve scope and repository
 
 Read applicable repository instructions. Inspect status, current branch,
