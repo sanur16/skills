@@ -8,6 +8,9 @@ description: "Run a repository-aware, adversarial review of staged, local, commi
 Review the exact change that is about to be committed or merged. Do not commit,
 push, open a PR, deploy, or merge; the caller owns those actions.
 
+`$code-simplify` may be hidden from the agent's skill list. Load it by path:
+[`../code-simplify/SKILL.md`](../code-simplify/SKILL.md).
+
 ## 1. Select and freeze the target
 
 Choose one mode:
